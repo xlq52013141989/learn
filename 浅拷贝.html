@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浅拷贝</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+    var obj = {
+        a: 10
+    }
+
+    function copy (obj) {
+        var newObj  = {};
+        for(attr in obj) {
+            newObj[attr] = obj[attr];
+        }
+        return newObj;
+    }
+
+    var obj2 = copy(obj);
+
+    obj2.a = 20;
+    console.log(obj.a);
+    console.log(obj2.a);
+
+    </script>
+</body>
+
+</html>

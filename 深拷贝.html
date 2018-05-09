@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>深拷贝</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+    var a = {name: {age: 20}}; 
+
+    function deepCopy(obj) {
+
+        if (typeof obj !== 'object') {
+            return obj;
+        }
+
+        var newObj = {};
+        for (attr in obj) {
+            newObj[attr] = deepCopy(obj[attr]);
+        }
+
+        return newObj;
+        
+    }
+
+    var b = deepCopy(a);
+    b.name.age =  30;
+
+    console.log(b.name.age);
+    console.log(a.name.age)
+    
+</script>
+
+</body>
+
+</html>
