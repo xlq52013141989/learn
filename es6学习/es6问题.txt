@@ -1,0 +1,18 @@
+1、ES6 模块化如何使用，开发环境如何打包
+
+export default  export function fn() {}  import from
+babel编译ES6语法，模块化可以用webpack 和 rollup
+
+2、Class和普通构造函数有何区别
+
+Class在语法上更加贴合面向对象的写法
+Class实现继承更加易读、易理解
+更易于写JAVA等后端语言的使用
+本质还是语法糖，使用prototype
+
+
+3、Promise的基本使用和原理
+
+
+
+总结一下ES6其他常用功能
