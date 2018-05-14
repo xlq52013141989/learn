@@ -1,0 +1,19 @@
+js中使用typeof能得到的哪些类型
+undefined string number boolean object function
+
+变量计算-强制类型转换
+字符串拼接、==运算符、if语句、逻辑运算
+
+何时使用===何时使用==
+obj.a == null 相当于obj.a === null || obj.a === undefined
+
+js中有哪些内置函数
+Object Array Boolean Number String Function Date RegExp Error
+
+js变量按照存储方式区分为哪些类型，并描述其特点
+值类型、引用类型
+
+如何理解JSON
+JSON 只不过是一个 JS 对象而已
+JSON.stringify() //对象转换成字符串
+JSON.parse() //字符串转换成对象
