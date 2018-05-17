@@ -1,0 +1,97 @@
+JS内置的全局函数和对象有哪些？
+window document navigator 
+
+常说的JS包含了两部分：
+JS基础知识(ECMA262标准)
+JS-Web-API(W3C标准)
+
+DOM: Document  Object  Model
+
+1、DOM是哪种基本的数据结构？
+DOM是树形结构
+
+2、DOM操作的常用API有哪些？
+获取DOM节点，以及节点的property和Attribute
+获取父节点，获取子节点
+新增节点，删除节点
+getElementById、getElementsByTagName、getElementsByName、getElementsByClassName、querySelectorAll
+createElement、parentElement、childNodes、removeChild、createDocumentFragment
+
+3、DOM节点的attr和property有何区别？
+property只是一个JS对象的树形的修改
+Attribute是 对html标签树形的修改
+
+BOM: Browser  Object  Model(浏览器对象模型)
+
+1、如何检测浏览器的类型
+var ua = navigator.userAgent
+
+2、解析url的各部分 
+location.href
+location.protocol
+location.pathname
+local.host
+location.search
+location.hash
+
+
+事件的基础
+1、编写一个通用的事件监听函数
+function bendEvent (elem, type, selector, fn) {
+    if(fn == null) {
+        fn = selector;
+        selector =null;
+    }
+    elem.addEventListener(type, function (e) {
+        var target
+        if (selector) {
+            target = e.target;
+            if(target.matches(selector)) {
+                fn.call(target, e);
+            }
+        }else {
+            fn(e)
+        }
+    })
+}
+
+2、描述事件冒泡流程
+DOM树形结构
+事件冒泡
+阻止冒泡
+
+3、对于一个无线下拉加载图片的页面，如何给每个图片绑定事件
+使用代理
+代理的好处有:代码比较简洁
+            对浏览器的压力比较小
+
+
+AJAX
+1、手动编写一个ajax,不依赖第三方库
+var xhr = new XMLHttpRequest()
+xhr.open('GET', '/api', false)
+xhr.onreadystatechange = function () {
+    if(xhr.redyState == 4) {
+        if(xhr.status == 200) {
+            alert(xhr.responseText)
+        }
+    }
+}
+
+2、跨域的几种实现方式
+
+
+2XX - 表示成功处理请求。 如200
+3XX - 需要重定向，浏览器直接跳转
+4XX - 客户端请求错误，如404
+5XX - 服务器端错误
+
+服务器端设置 http header
+跨域条件：协议、域名、端口，有一个不同就算跨域
+有三个标签允许跨域加载资源
+<img src=xxx />
+<link href=xxx />
+<script src=xxx></script>
+<img>用于打点统计，统计网站可能是其他域
+<link><script>可以使用CDN，CDN的也是其他域
+<script>可以用JSONP
