@@ -1,0 +1,32 @@
+1、获取2017-06-10格式的日期
+var dt = new Date();
+var year = dt.getFullYear();
+var month = dt.getMonth() + 1;
+var day = dt.getDate();
+var time = year + '-' + zero(month) + '-' + zero(day)
+function zero (num) {
+    if(num < 10) {
+        return '0' + num;
+    }else{
+        return ''+num
+    }
+}
+
+2、获取随机数，要求是长度一致的字符串格式
+var random = Math.random();
+random = random + '0000000000';
+random = random.slice(0, 10);
+
+3、写一个能遍历对象和数组的通用forEach函数
+function forEach (obj, fn) {
+    var key
+    if(obj instanceof Array) {
+        obj.forEach(function (item, index) {
+            fn(index, item);
+        })
+    }else {
+        for(key in obj) {
+            fn(key, obj[key]);
+        }
+    }
+}
