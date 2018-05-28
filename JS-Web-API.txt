@@ -1,4 +1,4 @@
-JS内置的全局函数和对象有哪些？
+﻿JS内置的全局函数和对象有哪些？
 window document navigator 
 
 常说的JS包含了两部分：
@@ -71,7 +71,7 @@ AJAX
 var xhr = new XMLHttpRequest()
 xhr.open('GET', '/api', false)
 xhr.onreadystatechange = function () {
-    if(xhr.redyState == 4) {
+    if(xhr.readyState == 4) {
         if(xhr.status == 200) {
             alert(xhr.responseText)
         }
@@ -95,3 +95,22 @@ xhr.onreadystatechange = function () {
 <img>用于打点统计，统计网站可能是其他域
 <link><script>可以使用CDN，CDN的也是其他域
 <script>可以用JSONP
+
+存储
+1、描述一下cookie,sessionStorage和localStorage的区别？
+容量
+是否会携带到ajax中
+API易用性
+
+cookie
+本身用于客户端喝服务器端通信
+但是它有本地存储的功能，浴室被"借用"
+使用document.cookie = ...获取喝修改即可
+
+存储量太小，只有4KB
+所有http请求都带，会影响获取资源的效率
+API简单，需要封装才能用document.cookie=...
+
+HTML5专门为存储而设计，最大容量5M
+API简单易用
+localStorage.setItem(key, value);localStorage.getItem(key);
