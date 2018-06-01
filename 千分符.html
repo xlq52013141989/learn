@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给数字加入千分符</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+    var str = '312312435678';
+
+    // function character (str) {
+    //     var num = str % 3;
+    //     var first = str.substring(0, num);
+    //     var splitStr = str.substring(num);
+    //     var arr = [];
+    //     var iNow = 0;
+    //     var addStr = '';
+    //     if(first) {
+    //         arr.push(first);
+    //     }
+    //     for(var i = 0; i < splitStr.length; i++) {
+    //         iNow++;
+    //         addStr += splitStr[i];
+    //         if(iNow == 3) {
+    //             arr.push(addStr);
+    //             iNow = 0;
+    //             addStr = '';
+    //         }
+    //     }
+        
+    //     return arr.join(',');
+    // }
+
+    function character (str) {
+        var re = /(?=(?!\b)(\d{3})+$)/g;
+        return str.replace(re, ',');
+    }
+
+    console.log(character(str));
+    </script>
+</body>
+</html>
